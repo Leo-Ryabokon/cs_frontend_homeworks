@@ -3,44 +3,48 @@ class BitAccessor {
         this.uint8Array = uint8Array;
     }
 
-    isValidate(baitIdx, bitIdx) {
-        let isValidate = true;
-        if (baitIdx < 0 || baitIdx >= this.uint8Array.length ) {
+    isValid(byteIdx, bitIdx, val) {
+        let isValid = true;
+        if (byteIdx < 0 || byteIdx >= this.uint8Array.length ) {
             console.log('Array index out of range');
-            isValidate = false;
+            isValid = false;
         }
         if (bitIdx > 7) {
-            console.log('The bit index must be less than or equal to 7');
-            isValidate = false;
+            console.log('The bit index must be less than or equal to 7.');
+            isValid = false;
         }
         if (bitIdx < 0) {
-            console.log('The bit index must be more than or equal to 0');
-            isValidate = false;
+            console.log('The bit index must be more than or equal to 0.');
+            isValid = false;
+        }
+        if (val !== undefined && val !== 0 && val !== 1) {
+            console.log('Value must be 0 or 1.');
+            isValid = false;
         }
 
-        return isValidate;
+        return isValid;
     };
 
-    get(baitIdx, bitIdx) {
-        if (this.isValidate(baitIdx, bitIdx)) {
-            return Number((this.uint8Array[baitIdx] & (1 << bitIdx)) !== 0);
-        }
-    };
-
-    set(baitIdx, bitIdx, val) {
-        if (this.isValidate(baitIdx, bitIdx)) {
-            Number(Boolean(val)) === 1
-                ? this.setBit(baitIdx, bitIdx)
-                : this.resetBit(baitIdx, bitIdx);
+    get(byteIdx, bitIdx) {
+        if (this.isValid(byteIdx, bitIdx)) {
+            return Number((this.uint8Array[byteIdx] & (1 << bitIdx)) !== 0);
         }
     };
 
-    setBit(baitIdx, bitIdx) {
-        this.uint8Array[baitIdx] |= (1 << bitIdx);
+    set(byteIdx, bitIdx, val) {
+        if (this.isValid(byteIdx, bitIdx, val)) {
+            val === 1
+                ? this.setBit(byteIdx, bitIdx)
+                : this.resetBit(byteIdx, bitIdx);
+        }
     };
 
-    resetBit(baitIdx, bitIdx) {
-        this.uint8Array[baitIdx] &=~ (1 << bitIdx);
+    setBit(byteIdx, bitIdx) {
+        this.uint8Array[byteIdx] |= (1 << bitIdx);
+    };
+
+    resetBit(byteIdx, bitIdx) {
+        this.uint8Array[byteIdx] &=~ (1 << bitIdx);
     };
 };
 
