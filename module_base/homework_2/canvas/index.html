@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Filters</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div>
+                <p class="label">Original image</p>
+                <canvas id="canvas_1" class="canvas"></canvas>
+            </div>
+            <div>
+                <p class="label">Filtered image</p>
+                <canvas id="canvas_2" class="canvas"></canvas>
+            </div>
+        </div>
+        <div class="wrapper">
+            <input
+                id="input"
+                class="input"
+                type="file"
+                accept="image/png, image/jpeg"
+            >
+            <button id="grayscale_btn" class="button">
+                Apply grayscale filter
+            </button>
+            <button id="inverse_btn" class="button">
+                Apply inverse filter
+            </button>
+        </div>
+    </div>
+
+    <script src="canvas.js"></script>
+</body>
+</html>
