@@ -22,19 +22,15 @@ class LinkedList {
             node.prev = this.last
         }
         this.last = node;
-        this.nodesList.push(node.value);
     };
 
-    [Symbol.iterator]() {
-        let idx = -1;
-        const data = this.nodesList;
+    *[Symbol.iterator]() {
+        let current = this.first;
 
-        return {
-            next: () => ({
-                value: data[++idx],
-                done: !(idx in data),
-            }),
-        };
+        while (current) {
+            yield current.value;
+            current = current.next;
+        }
     };
 };
 
