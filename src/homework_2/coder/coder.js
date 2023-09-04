@@ -1,4 +1,4 @@
-const BitAccessor = require('../../../libs/bitAccessor');
+const BitAccessor = require('../../libs/bitAccessor');
 
 const schema = [
     [3, 'number'],  // 3 бита число

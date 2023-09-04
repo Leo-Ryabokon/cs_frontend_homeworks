@@ -1,0 +1,22 @@
+{
+  "name": "cs_frontend",
+  "version": "1.0.0",
+  "description": "homeworks",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leo-Ryabokon/cs_frontend_homeworks.git"
+  },
+  "author": "Leonid Ryabokon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leo-Ryabokon/cs_frontend_homeworks"
+  },
+  "homepage": "https://github.com/Leo-Ryabokon/cs_frontend_homeworks#readme",
+  "devDependencies": {
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.3"
+  }
+}

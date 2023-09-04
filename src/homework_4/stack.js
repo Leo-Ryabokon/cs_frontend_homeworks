@@ -1,4 +1,4 @@
-const Stack = require('../../libs/Stack');
+const Stack = require('../libs/Stack');
 
 const stack = new Stack(Int32Array, 10);
 

@@ -1,4 +1,4 @@
-const BitAccessor = require('../../libs/bitAccessor');
+const BitAccessor = require('../libs/bitAccessor');
 
 const bit = new BitAccessor(new Uint8Array([0b1110, 0b1101]));
 
